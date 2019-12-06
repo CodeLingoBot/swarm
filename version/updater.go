@@ -16,6 +16,7 @@ type UpdaterLike interface {
 
 type realUpdater struct{}
 
+// Apply is a function.
 func (h *realUpdater) Apply(updateReader io.Reader, opts update.Options) error {
 	return update.Apply(updateReader, opts)
 }
@@ -27,10 +28,12 @@ type mockUpdater struct {
 	successful    bool
 }
 
+// SimulateError is a function.
 func (mock *mockUpdater) SimulateError() {
 	mock.simluateError = true
 }
 
+// Apply is a function.
 func (mock *mockUpdater) Apply(updateReader io.Reader, opts update.Options) error {
 	if mock.simluateError {
 		return errors.New("Pretend error in Apply")

@@ -21,8 +21,11 @@ func NewBundler() *Bundler {
 // ByFilepath a type to sort files by their names.
 type ByFilepath []*source.File
 
+// Len is a function.
 func (nf ByFilepath) Len() int      { return len(nf) }
+// Swap is a function.
 func (nf ByFilepath) Swap(i, j int) { nf[i], nf[j] = nf[j], nf[i] }
+// Less is a function.
 func (nf ByFilepath) Less(i, j int) bool {
 	nameA := nf[i].Filepath
 	nameB := nf[j].Filepath

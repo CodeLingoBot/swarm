@@ -29,6 +29,7 @@ func (smb *SourceMapBuilder) AddSourceMap(spacerLines int, fileLineCount int, ma
 	smb.sources = append(smb.sources, source)
 }
 
+// String is a function.
 func (smb *SourceMapBuilder) String() string {
 	var sb strings.Builder
 	sb.WriteString(`{"version":3,"file":"`)
