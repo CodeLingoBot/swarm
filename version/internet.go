@@ -15,6 +15,7 @@ type InternetLike interface {
 
 type realInternet struct{}
 
+// Get is a function.
 func (h *realInternet) Get(url string) (*http.Response, error) {
 	return http.Get(url)
 }
@@ -29,6 +30,7 @@ type noopCloser struct {
 	io.Reader
 }
 
+// Close is a function.
 func (noopCloser) Close() error {
 	return nil
 }
@@ -43,6 +45,7 @@ func (mock *mockInternet) addStringResponse(url string, response string) {
 	mock.responses[url] = response
 }
 
+// Get is a function.
 func (mock *mockInternet) Get(url string) (*http.Response, error) {
 	stringResponse := mock.responses[url]
 
